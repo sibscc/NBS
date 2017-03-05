@@ -10,18 +10,18 @@
 library(getopt)
 spec <- matrix(c(
   'verbose', 'v', 2, "integer", "Verbose option",
-  'network', 'n', 1,"character", "Network file with genes in the first two columns and score in the third column",
+  'input_network', 'i', 1,"character", "Network file with genes in the first two columns and score in the third column",
   'output', 'o', 1, "character", "Output matrix file"
   ), byrow=T, ncol=5)
 
 opts <- getopt(spec)
 
-if(is.null(opts$network) |is.null(opts$output)){
-        cat(getopy(spec, usage=T))
+if(is.null(opts$input_network) |is.null(opts$output)){
+        cat(getopt(spec, usage=T))
         q(status =1 )
 }
 
-net <- opts$network
+net <- opts$input_network
 output <- opts$output
 network <- read.table(net)
 

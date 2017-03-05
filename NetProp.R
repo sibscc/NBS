@@ -35,13 +35,13 @@ network <- opts$network
 step <- opts$step
 contract <- opts$contract
 output <- opts$output
-
+print(input)
 cat("Reading Input data...\n")
 if(!file.exists(input)){
   print("Input file does not exist. Please check!")
-  exit()
+  q()
 }else{
-  people <- as.matrix(read.table(input,as.is=F, header=T))
+  people <- as.matrix(read.table(input,as.is=F, header=T, row.names=1))
   if(!is.numeric(people)){
     print("Non numeric input data. Please Chech!")
     q(status=1)
@@ -99,8 +99,9 @@ cat("Normalizing the interaction matrix...\n")
 int_norm <- network/norm(network)   ### interaction matrix normalization by the matrix norm
 cat("Network propagation...\n")
 PropNet <- propagate(people, int_norm,0.5)
+rownames(PropNet) <- rownames(network)
 cat("Writing the propagated data...\n")
-write.table(PropNet, file=output,row.names=F)
+write.table(PropNet, file=output, col.names=NA)
 cat("Network propagation done!\n")
 
 
