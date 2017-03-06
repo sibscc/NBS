@@ -25,11 +25,14 @@ def usage():
 				gene1	gene2
 		gene1	score	socre
 		gene2	socre	score
-		
+	
+		example: 	python NetworkPropagation.py -i VCF_path/gVCF_file -o output_dir -n network_form1
+				python NetworkPropagation.py -i VCF_path/gVCF_file -o output_dir -m network_form2
+	
 		-i		input		"character"		input path of VCF files or gVCF file[must]
 		-o		output		"character"		network propagated output dir[must]
-		-n		network		"character"		network to be propagated[must -n or -e]
-		-m		network2	"character"		the gene interaction matrix format[must -n or -n]
+		-n		network		"character"		network to be propagated[must -n or -m]
+		-m		network2	"character"		the gene interaction matrix format[must -n or -m]
 		-g		germline	"germline"		1 or 0 whether sparate the homozugous and heterzygous mutations[default not sepearate 0]
 		-s		step_length	"numeroc		the step length of propagation[default 0.5]
 		-c		contraction	"numeric"		the contraction limit[default 1e-6]	
