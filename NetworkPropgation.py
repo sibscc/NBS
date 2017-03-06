@@ -19,9 +19,9 @@ def usage():
 		This is a programm for doing network propagation from gVCF or VCF format data through gene networks
 		such as: STRING, HumanNet, or other networks. 
 
-		The format of the networks should be like(-m option):
+		The format of the networks should be like(-n option):
 		gene1		gene2		interaction_score
-		or(-c option):
+		or(-m option):
 				gene1	gene2
 		gene1	score	socre
 		gene2	socre	score
