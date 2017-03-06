@@ -101,7 +101,7 @@ cat("Network propagation...\n")
 PropNet <- propagate(people, int_norm,0.5)
 rownames(PropNet) <- rownames(network)
 cat("Writing the propagated data...\n")
-write.table(PropNet, file=output, col.names=NA)
+write.table(PropNet, file=output, col.names=NA,sep="\t")
 cat("Network propagation done!\n")
 
 
